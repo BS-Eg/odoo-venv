@@ -10,6 +10,17 @@ echo  " Install Last Version For Postgresql on Ubuntu "
     
     sudo apt-get -y install postgresql
 
+        echo " "
+        echo " "
+        echo " "    
+        echo " "
+        echo " "
+        echo " "
+        echo "       ####     postgresql installation complet success     ######       "
+        echo ""
+        echo ""
+        echo ""
+        sleep 1s
 
 
 
@@ -156,13 +167,16 @@ echo  "  3. The journalctl file contains all the information about the running s
 
     sudo journalctl -u odoo
 
-    
-        echo ""
-        echo ""
-        echo "    
+
+        echo " "
+        echo " "
+        echo " "    
+        echo " "
+        echo " "
+        echo " "
         echo "       ####     installation complet success     ######       "
         echo ""
         echo ""
         echo ""
-        sleep 3s
+        sleep 1s
         
