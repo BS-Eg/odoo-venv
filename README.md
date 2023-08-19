@@ -1,8 +1,8 @@
 # odoo-venv  Ubuntu 20.04.5 LTS & Ubuntu 22.04.1 LTS
 
-#  one command, the following will be installed
+#  one command, Install Odoo With Virtual venv 
 
-Check os version Ubuntu 20.04.5 LTS & Ubuntu 22.04.1 LTS
+First ....  Check os version Ubuntu 20.04.5 LTS & Ubuntu 22.04.1 LTS
 
 
 # INSTALL
