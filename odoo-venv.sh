@@ -20,6 +20,9 @@ echo  " Install Last Version For Postgresql on Ubuntu "
         echo ""
         echo ""
         echo ""
+
+        psql -V
+        
         sleep 1s
 
 
