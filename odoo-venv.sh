@@ -37,7 +37,7 @@
 
 # " 1. Switch to the odoo user with the sudo su command: "
 
-    sudo su - odoo
+##    sudo su - odoo
 
 # " Create Virtual venv Called .env
     
@@ -63,7 +63,8 @@
     
 # " 8. Switch back to the sudo user with: "
 
-    exit
+##    exit
+
 #  " 9. Create the odoo.conf file using the nano text editor: "
 
     sudo touch /odoo/151/odoo.conf
