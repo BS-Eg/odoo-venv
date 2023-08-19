@@ -94,7 +94,7 @@
         echo "PermissionsStartOnly=true">>odoo.service
         echo "User=odoo">>odoo.service
         echo "Group=odoo">>odoo.service
-        echo "ExecStart=/opt/odoo/odoo-venv/bin/python3 /odoo/151/odoo-bin -c /odoo/151/odoo.conf">>odoo.service
+        echo "ExecStart=/odoo/151/.env/bin/python3 /odoo/151/odoo-bin -c /odoo/151/odoo.conf">>odoo.service
         echo "StandardOutput=journal+console">>odoo.service
         echo "[Install]">>odoo.service
         echo "WantedBy=multi-user.target">>odoo.service">>odoo.service
