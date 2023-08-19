@@ -1,6 +1,6 @@
-echo " Install Odoo on Ubuntu "
+# " Install Odoo on Ubuntu "
 
-echo " Step 1: Update Repository "
+# " Step 1: Update Repository "
 
     apt update && apt upgrade -y
     apt install git -y
@@ -13,58 +13,58 @@ echo " Step 1: Update Repository "
     
     cd /odoo/151
 
-echo " Step 2: Install Odoo Dependencies "
+# " Step 2: Install Odoo Dependencies "
 
     sudo apt install -y build-essential wget python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev
 
 
-echo " Step 3: Create Odoo User "
+# " Step 3: Create Odoo User "
 
     sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
 
-echo " Step 4: Create User odoo in Postgresql
+# " Step 4: Create User odoo in Postgresql
 
     sudo su - postgres -c "createuser -s odoo"
 
-echo " Step 5: Install Last Version From wkhtmltopdf "
+# " Step 5: Install Last Version From wkhtmltopdf "
 
     sudo apt install wkhtmltopdf -y
     
-echo " clone Last Specify Requierd Version From odoo To Specify Location "
+# " clone Last Specify Requierd Version From odoo To Specify Location "
 
     git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
 
 
-echo " 1. Switch to the odoo user with the sudo su command: "
+# " 1. Switch to the odoo user with the sudo su command: "
 
     sudo su - odoo
 
-echo " Create Virtual venv Called .env
+# " Create Virtual venv Called .env
     
     python3 -m venv .env
 
-echo  " Activate this venv derive "
+#  " Activate this venv derive "
 
     source .env/bin/activate
 
-echo " Install wheel And Requierd "
+# " Install wheel And Requierd "
 
     pip3 install wheel
     pip3 install -r odoo/requirements.txt
     
-echo " exit from venv mode  "
+# " exit from venv mode  "
     
     deactivate
 
-echo " 7. Create a separate directory for custom addons:"
+# " 7. Create a separate directory for custom addons:"
 
     mkdir /odoo/151/custom
 
     
-echo " 8. Switch back to the sudo user with: "
+# " 8. Switch back to the sudo user with: "
 
     exit
-echo  " 9. Create the odoo.conf file using the nano text editor: "
+#  " 9. Create the odoo.conf file using the nano text editor: "
 
     sudo nano /odoo/151/odoo.conf
 
@@ -77,10 +77,14 @@ echo  " 9. Create the odoo.conf file using the nano text editor: "
     db_password = False
     addons_path = /opt/odoo/odoo/addons,/opt/odoo/odoo-custom-addons
 
-echo  " 10. Create the odoo.service file with: "
+#  " 10. Create the odoo.service file with: "
 
     sudo nano /etc/systemd/system/odoo.service
-
+    cat <<EOF >filename
+    first line
+    second line
+    third line
+    EOF
     #    Paste the following contents into the file:
 
     [Unit]
@@ -99,15 +103,15 @@ echo  " 10. Create the odoo.service file with: "
     WantedBy=multi-user.target
 
 
-echo  "  11. Update the service list: "
+#  "  11. Update the service list: "
 
     sudo systemctl daemon-reload
 
-echo  "  1. Enable the Odoo service on system startup: "
+#  "  1. Enable the Odoo service on system startup: "
 
     sudo systemctl enable --now odoo
 
-echo "  3. The journalctl file contains all the information about the running service: "
+# "  3. The journalctl file contains all the information about the running service: "
 
     sudo journalctl -u odoo
 
