@@ -39,7 +39,7 @@
 
 ##    sudo su - odoo
 
-    cd  odoo/151
+    cd  /odoo/151
 
 # " Create Virtual venv Called .env
     
@@ -72,6 +72,8 @@
 
 #  " 9. Create the odoo.conf file using the nano text editor: "
 
+    cd  /odoo/151
+
     sudo touch /odoo/151/odoo.conf
 
 
@@ -86,6 +88,8 @@
 
 
 #  " 10. Create the odoo.service file with: "
+
+    cd  /lib/systemd/system
 
     touch /lib/systemd/system/odoo.service
 
@@ -122,3 +126,12 @@
     sudo journalctl -u odoo
 
     
+        echo ""
+        echo ""
+        echo "    
+        echo "       ####     installation complet success     ######       "
+        echo ""
+        echo ""
+        echo ""
+        sleep 3s
+        
