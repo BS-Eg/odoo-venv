@@ -130,6 +130,8 @@
 
     sudo systemctl enable --now odoo
 
+    sudo systemctl restart odoo
+
 # "  3. The journalctl file contains all the information about the running service: "
 
     sudo journalctl -u odoo
