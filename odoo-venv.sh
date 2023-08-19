@@ -69,38 +69,36 @@
 
     sudo touch /odoo/151/odoo.conf
 
-    cat <<EOF >odoo.conf
 
-        [options]
-        ; Database operations password:
-        admin_passwd = PASSWORD
-        db_host = False
-        db_port = False
-        db_user = odoo
-        db_password = False
-        addons_path = /opt/odoo/odoo/addons,/opt/odoo/odoo-custom-addons
+        echo "[options] " >> odoo.conf
+        echo "; Database operations password: " >> odoo.conf
+        echo "admin_passwd = PASSWORD " >> odoo.conf
+        echo "db_host = False " >> odoo.conf
+        echo "db_port = False " >> odoo.conf
+        echo "db_user = odoo " >> odoo.conf
+        echo "db_password = False " >> odoo.conf
+        echo "addons_path = /opt/odoo/odoo/addons,/opt/odoo/odoo-custom-addons " >> odoo.conf
 
-    EOF    
 
 #  " 10. Create the odoo.service file with: "
 
     touch /lib/systemd/system/odoo.service
-    cat <<EOF >odoo.service
-        [Unit]
-        Description=Odoo
-        Requires=postgresql.service
-        After=network.target postgresql.service
-        [Service]
-        Type=simple
-        SyslogIdentifier=odoo
-        PermissionsStartOnly=true
-        User=odoo
-        Group=odoo
-        ExecStart=/opt/odoo/odoo-venv/bin/python3 /opt/odoo/odoo/odoo-bin -c /etc/odoo.conf
-        StandardOutput=journal+console
-        [Install]
-        WantedBy=multi-user.target
-    EOF
+
+        echo "[Unit]">>odoo.service
+        echo "Description=Odoo">>odoo.service
+        echo "Requires=postgresql.service">>odoo.service
+        echo "After=network.target postgresql.service">>odoo.service
+        echo "[Service]">>odoo.service
+        echo "Type=simple">>odoo.service
+        echo "SyslogIdentifier=odoo">>odoo.service
+        echo "PermissionsStartOnly=true">>odoo.service
+        echo "User=odoo">>odoo.service
+        echo "Group=odoo">>odoo.service
+        echo "ExecStart=/opt/odoo/odoo-venv/bin/python3 /odoo/151/odoo-bin -c /odoo/151/odoo.conf">>odoo.service
+        echo "StandardOutput=journal+console">>odoo.service
+        echo "[Install]">>odoo.service
+        echo "WantedBy=multi-user.target">>odoo.service">>odoo.service
+
     #    Paste the following contents into the file:
 
  
