@@ -118,26 +118,3 @@
     sudo journalctl -u odoo
 
     
-
-     
-
-
-
-
-    
-
-
-
-
-
-    
-
-
-    
-    
-git clone  https://github.com/BS-Eg/DockerBS
-cd /DockerBS
-cp -r -f runme.sh /odoo
-cd /odoo
-chmod +x  runme.sh
-./runme.sh
