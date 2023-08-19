@@ -29,6 +29,15 @@
 # " Step 5: Install Last Version From wkhtmltopdf "
 
     sudo apt install wkhtmltopdf -y
+
+    sudo apt-get install nodejs npm -y
+    
+    sudo npm install -g less less-plugin-clean-css 
+    
+    sudo npm install -g rtlcss
+
+    sudo apt-get install xfonts-75dpi  
+
     
 # " clone Last Specify Requierd Version From odoo To Specify Location "
 
