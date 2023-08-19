@@ -39,6 +39,8 @@
 
 ##    sudo su - odoo
 
+    cd  odoo/151
+
 # " Create Virtual venv Called .env
     
     python3 -m venv .env
@@ -50,15 +52,18 @@
 # " Install wheel And Requierd "
 
     pip3 install wheel
-    pip3 install -r odoo/requirements.txt
+    pip3 install -r /odoo/151/requirements.txt
     
 # " exit from venv mode  "
     
     deactivate
-
+    
+    
+    cd /odoo/151
+        
 # " 7. Create a separate directory for custom addons:"
 
-    mkdir /odoo/151/custom
+    mkdir -p odoo/151/custom
 
     
 # " 8. Switch back to the sudo user with: "
@@ -77,7 +82,7 @@
         echo "db_port = False " >> odoo.conf
         echo "db_user = odoo " >> odoo.conf
         echo "db_password = False " >> odoo.conf
-        echo "addons_path = /opt/odoo/odoo/addons,/opt/odoo/odoo-custom-addons " >> odoo.conf
+        echo "addons_path = /odoo/151/addons,/odoo/151/custom " >> odoo.conf
 
 
 #  " 10. Create the odoo.service file with: "
