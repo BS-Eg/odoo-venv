@@ -192,6 +192,6 @@ sudo apt-get install xfonts-75dpi
         sleep 1s
 
 
-        rm -r -f odoo-venv.sh
+        rm -r -f ./odoo-venv.sh
 
         
