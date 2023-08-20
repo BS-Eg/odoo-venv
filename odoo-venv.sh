@@ -94,8 +94,8 @@ echo   " Activate this venv derive "
 
 echo  " Install wheel And Requierd "
 
-  sudo pip3 install wheel
-  sudo pip3 install -r /odoo/151/requirements.txt
+   pip3 install wheel
+   pip3 install -r /odoo/151/requirements.txt
     
 echo  " exit from venv mode  "
     
