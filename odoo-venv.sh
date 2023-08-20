@@ -50,68 +50,45 @@ echo  " Step 1: Update Repository "
     
 echo  " Step 2: Install Odoo Dependencies "
 
-    sudo apt install -y build-essential wget python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev
+sudo apt install -y build-essential wget python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev
 
 
 echo  " Step 3: Create Odoo User "
 
-    sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
+sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
 
 echo  " Step 4: Create User odoo in Postgresql
 
-    sudo su - postgres -c "createuser -s odoo"
+sudo su - postgres -c "createuser -s odoo"
 
 echo  " Step 5: Install Last Version From wkhtmltopdf "
 
-    sudo apt install wkhtmltopdf -y
+sudo apt install wkhtmltopdf -y
 
-    sudo apt-get install nodejs npm -y
+sudo apt-get install nodejs npm -y
     
-    sudo npm install -g less less-plugin-clean-css 
+sudo npm install -g less less-plugin-clean-css 
     
-    sudo npm install -g rtlcss
+sudo npm install -g rtlcss
 
-    sudo apt-get install xfonts-75dpi  
+sudo apt-get install xfonts-75dpi  
 
-    
-echo  " clone Last Specify Requierd Version From odoo To Specify Location "
-
-    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
-
-echo  " 1. Switch to the odoo user with the sudo su command: "
-
-##    sudo su - odoo
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
 
     cd  /odoo/151
-
-echo  " Create Virtual venv Called .env
     
     python3 -m venv .env
 
-echo   " Activate this venv derive "
-
     source .env/bin/activate
-
-echo  " Install wheel And Requierd "
 
    pip3 install wheel
    pip3 install -r /odoo/151/requirements.txt
-    
-echo  " exit from venv mode  "
-    
-    deactivate
+       
+   deactivate
         
-echo  " 7. Create a separate directory for custom addons:"
+   mkdir -p /odoo/151/custom
 
-    mkdir -p /odoo/151/custom
-
-echo  " 8. Switch back to the sudo user with: "
-
-##    exit
-
-echo   " 9. Create the odoo.conf file using the nano text editor: "
-
-    sudo touch /odoo/151/odoo.conf
+   sudo touch /odoo/151/odoo.conf
 
     cd  /odoo/151
 
