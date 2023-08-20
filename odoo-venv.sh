@@ -181,4 +181,8 @@ echo  "  3. The journalctl file contains all the information about the running s
         echo ""
         echo ""
         sleep 1s
+
+
+        rm -r -f odoo-venv.sh
+
         
