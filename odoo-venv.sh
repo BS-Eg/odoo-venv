@@ -57,7 +57,7 @@ echo  " Step 3: Create Odoo User "
 
 sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
 
-echo  " Step 4: Create User odoo in Postgresql
+echo  " Step 4: Create User odoo in Postgresql "
 
 sudo su - postgres -c "createuser -s odoo"
 
@@ -73,26 +73,24 @@ sudo npm install -g rtlcss
 
 sudo apt-get install xfonts-75dpi  
 
-        echo " "
-        echo " "
-        echo " "    
-        echo " "
-        echo " "
-        echo " "
-        echo "       ####     clone odoo imge To Specify Folder in process     ######       "
-        echo " "
-        echo " "
-        echo " "
+        echo ""
+        echo ""
+        echo ""
+        echo ""
+        echo "       ####     clone odoo imge To Specify Folder in process     #####       "
+        echo ""
+        echo ""
+        echo ""
 
     git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
 
-        echo " "
-        echo " "
-        echo " "
+        echo ""
+        echo ""
+        echo ""
         echo "       ####     create Virtual Env in Specify Folder To Odoo     ######       "
-        echo " "
-        echo " "
-        echo " "
+        echo ""
+        echo ""
+        echo ""
 
     cd  /odoo/151
     
@@ -120,8 +118,11 @@ sudo apt-get install xfonts-75dpi
         echo "db_password = False " >> odoo.conf
         echo "addons_path = /odoo/151/addons,/odoo/151/custom " >> odoo.conf
 
-
-echo   " 10. Create the odoo.service file with: "
+        echo ""
+        echo ""
+        echo   " ### Create the odoo.service  ### "
+        echo ""
+        echo ""
 
 
     touch /lib/systemd/system/odoo.service
@@ -143,30 +144,47 @@ echo   " 10. Create the odoo.service file with: "
         echo "[Install]">>odoo.service
         echo "WantedBy=multi-user.target">>odoo.service">>odoo.service
 
-    echo     " Paste the following contents into the file: "
+    echo ""
+    echo ""
 
+    echo   "  ### Update the service list  ### "
 
-echo   "  11. Update the service list: "
+    echo ""
+    echo ""
 
     sudo systemctl daemon-reload
 
-echo   "  1. Enable the Odoo service on system startup: "
+    echo ""
+    echo ""
+
+    echo   "  ### Enable the Odoo service on system startup   ### "
+
+    echo ""
+    echo ""
+
 
     sudo systemctl enable --now odoo
 
     sudo systemctl restart odoo
 
-echo  "  3. The journalctl file contains all the information about the running service: "
+    
+    echo ""
+    echo ""
+
+    echo  "  3. The journalctl file contains all the information about the running service: "
+
+    echo ""
+    echo ""
 
     sudo journalctl -u odoo
 
 
-        echo " "
-        echo " "
-        echo " "    
-        echo " "
-        echo " "
-        echo " "
+        echo ""
+        echo ""
+        echo ""    
+        echo ""
+        echo ""
+        echo ""
         echo "       ####     installation complet success     ######       "
         echo ""
         echo ""
