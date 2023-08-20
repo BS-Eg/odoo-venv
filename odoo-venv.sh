@@ -1,5 +1,8 @@
 echo  " Install Last Version For Postgresql on Ubuntu "
 
+
+    lsb_release -a
+    
     sudo apt update && apt upgrade -y 
     
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
@@ -73,14 +76,13 @@ echo  " Step 5: Install Last Version From wkhtmltopdf "
     
 echo  " clone Last Specify Requierd Version From odoo To Specify Location "
 
-    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151/
-
+    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
 
 echo  " 1. Switch to the odoo user with the sudo su command: "
 
 ##    sudo su - odoo
 
-    cd  /odoo/151/
+    cd  /odoo/151
 
 echo  " Create Virtual venv Called .env
     
@@ -92,8 +94,8 @@ echo   " Activate this venv derive "
 
 echo  " Install wheel And Requierd "
 
-    pip3 install wheel
-    pip3 install -r /odoo/151/requirements.txt
+  sudo pip3 install wheel
+  sudo pip3 install -r /odoo/151/requirements.txt
     
 echo  " exit from venv mode  "
     
