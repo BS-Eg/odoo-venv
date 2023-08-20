@@ -102,11 +102,9 @@ echo  " exit from venv mode  "
     deactivate
     
     
-    cd /odoo/151
-        
 echo  " 7. Create a separate directory for custom addons:"
 
-    mkdir -p odoo/151/custom
+    mkdir -p /odoo/151/custom
 
     
 echo  " 8. Switch back to the sudo user with: "
@@ -115,10 +113,10 @@ echo  " 8. Switch back to the sudo user with: "
 
 echo   " 9. Create the odoo.conf file using the nano text editor: "
 
-    cd  /odoo/151
 
     sudo touch /odoo/151/odoo.conf
 
+    cd  /odoo/151
 
         echo "[options] " >> odoo.conf
         echo "; Database operations password: " >> odoo.conf
@@ -132,9 +130,10 @@ echo   " 9. Create the odoo.conf file using the nano text editor: "
 
 echo   " 10. Create the odoo.service file with: "
 
-    cd  /lib/systemd/system
 
     touch /lib/systemd/system/odoo.service
+
+    cd  /lib/systemd/system
 
         echo "[Unit]">>odoo.service
         echo "Description=Odoo">>odoo.service
