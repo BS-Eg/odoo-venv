@@ -73,7 +73,26 @@ sudo npm install -g rtlcss
 
 sudo apt-get install xfonts-75dpi  
 
-git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
+        echo " "
+        echo " "
+        echo " "    
+        echo " "
+        echo " "
+        echo " "
+        echo "       ####     clone odoo imge To Specify Folder in process     ######       "
+        echo " "
+        echo " "
+        echo " "
+
+    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
+
+        echo " "
+        echo " "
+        echo " "
+        echo "       ####     create Virtual Env in Specify Folder To Odoo     ######       "
+        echo " "
+        echo " "
+        echo " "
 
     cd  /odoo/151
     
