@@ -100,19 +100,16 @@ echo  " Install wheel And Requierd "
 echo  " exit from venv mode  "
     
     deactivate
-    
-    
+        
 echo  " 7. Create a separate directory for custom addons:"
 
     mkdir -p /odoo/151/custom
 
-    
 echo  " 8. Switch back to the sudo user with: "
 
 ##    exit
 
 echo   " 9. Create the odoo.conf file using the nano text editor: "
-
 
     sudo touch /odoo/151/odoo.conf
 
@@ -151,8 +148,6 @@ echo   " 10. Create the odoo.service file with: "
         echo "WantedBy=multi-user.target">>odoo.service">>odoo.service
 
     echo     " Paste the following contents into the file: "
-
- 
 
 
 echo   "  11. Update the service list: "
