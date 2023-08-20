@@ -176,7 +176,7 @@ sudo apt-get install xfonts-75dpi
     echo ""
     echo ""
 
-    sudo journalctl -u odoo
+    # sudo journalctl -u odoo
 
 
         echo ""
