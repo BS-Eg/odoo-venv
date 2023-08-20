@@ -40,13 +40,11 @@ echo  " Step 1: Update Repository "
     apt install git -y
     
     cd /
-    mkdir -p odoo      
-    mkdir -p odoo/151      
-    mkdir -p odoo/161
-    mkdir -p odoo/code
+    mkdir -p /odoo      
+#    mkdir -p /odoo/151      
+#    mkdir -p /odoo/161
+    mkdir -p /odoo/code
     
-    cd /odoo/151
-
 echo  " Step 2: Install Odoo Dependencies "
 
     sudo apt install -y build-essential wget python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev
@@ -75,14 +73,14 @@ echo  " Step 5: Install Last Version From wkhtmltopdf "
     
 echo  " clone Last Specify Requierd Version From odoo To Specify Location "
 
-    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151
+    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/151/
 
 
 echo  " 1. Switch to the odoo user with the sudo su command: "
 
 ##    sudo su - odoo
 
-    cd  /odoo/151
+    cd  /odoo/151/
 
 echo  " Create Virtual venv Called .env
     
