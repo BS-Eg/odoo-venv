@@ -82,7 +82,7 @@ sudo apt-get install xfonts-75dpi
         echo ""
         echo ""
 
-    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/161
+    git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /odoo/161
 
         echo ""
         echo ""
