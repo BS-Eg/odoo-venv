@@ -1,0 +1,196 @@
+echo  " Install Last Version For Postgresql on Ubuntu "
+
+
+    lsb_release -a
+    
+    sudo apt update && apt upgrade -y 
+    
+    sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+    
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    
+    sudo apt update && apt upgrade -y 
+    
+    sudo apt-get -y install postgresql
+
+        echo " "
+        echo " "
+        echo " "    
+        echo " "
+        echo " "
+        echo " "
+        echo "       ####     postgresql installation complet success     ######       "
+        echo ""
+        echo ""
+        echo ""
+
+        psql -V
+        
+        sleep 1s
+
+
+
+
+echo  " Install Odoo on Ubuntu "
+
+echo  " Step 1: Update Repository "
+
+
+
+
+
+    apt update && apt upgrade -y
+    apt install git -y
+    
+    cd /
+    mkdir -p /odoo      
+#    mkdir -p /odoo/161      
+#    mkdir -p /odoo/161
+    mkdir -p /odoo/code
+    
+echo  " Step 2: Install Odoo Dependencies "
+
+sudo apt install -y build-essential wget python3-dev python3-venv python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev
+
+
+echo  " Step 3: Create Odoo User "
+
+sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
+
+echo  " Step 4: Create User odoo in Postgresql "
+
+sudo su - postgres -c "createuser -s odoo"
+
+echo  " Step 5: Install Last Version From wkhtmltopdf "
+
+sudo apt install wkhtmltopdf -y
+
+sudo apt-get install nodejs npm -y
+    
+sudo npm install -g less less-plugin-clean-css 
+    
+sudo npm install -g rtlcss
+
+sudo apt-get install xfonts-75dpi  
+
+        echo ""
+        echo ""
+        echo ""
+        echo ""
+        echo "       ####     clone odoo imge To Specify Folder in process     #####       "
+        echo ""
+        echo ""
+        echo ""
+
+    git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /odoo/161
+
+        echo ""
+        echo ""
+        echo ""
+        echo "       ####     create Virtual Env in Specify Folder To Odoo     ######       "
+        echo ""
+        echo ""
+        echo ""
+
+    mkdir  /odoo/161
+    cd  /odoo/161
+    
+    python3 -m venv .env
+
+    source .env/bin/activate
+
+   pip3 install wheel
+   pip3 install -r /odoo/161/requirements.txt
+       
+   deactivate
+        
+   mkdir -p /odoo/161/custom
+
+   sudo touch /odoo/161/odoo.conf
+
+    cd /odoo/161
+
+        echo "[options] " >> odoo.conf
+        echo "; Database operations password: " >> odoo.conf
+        echo "admin_passwd = PASSWORD " >> odoo.conf
+        echo "db_host = False " >> odoo.conf
+        echo "db_port = False " >> odoo.conf
+        echo "db_user = odoo " >> odoo.conf
+        echo "db_password = False " >> odoo.conf
+        echo "addons_path = /odoo/161/addons,/odoo/161/custom " >> odoo.conf
+
+        echo ""
+        echo ""
+        echo   " ### Create the odoo.service  ### "
+        echo ""
+        echo ""
+
+
+    touch /lib/systemd/system/odoo.service
+
+    cd  /lib/systemd/system
+
+        echo "[Unit]">>odoo.service
+        echo "Description=Odoo">>odoo.service
+        echo "Requires=postgresql.service">>odoo.service
+        echo "After=network.target postgresql.service">>odoo.service
+        echo "[Service]">>odoo.service
+        echo "Type=simple">>odoo.service
+        echo "SyslogIdentifier=odoo">>odoo.service
+        echo "PermissionsStartOnly=true">>odoo.service
+        echo "User=odoo">>odoo.service
+        echo "Group=odoo">>odoo.service
+        echo "ExecStart=/odoo/161/.env/bin/python3 /odoo/161/odoo-bin -c /odoo/161/odoo.conf">>odoo.service
+        echo "StandardOutput=journal+console">>odoo.service
+        echo "[Install]">>odoo.service
+        echo "WantedBy=multi-user.target">>odoo.service">>odoo.service
+
+    echo ""
+    echo ""
+
+    echo   "  ### Update the service list  ### "
+
+    echo ""
+    echo ""
+
+    sudo systemctl daemon-reload
+
+    echo ""
+    echo ""
+
+    echo   "  ### Enable the Odoo service on system startup   ### "
+
+    echo ""
+    echo ""
+
+
+    sudo systemctl enable --now odoo
+
+    sudo systemctl restart odoo
+
+    
+    echo ""
+    echo ""
+
+    echo  "  3. The journalctl file contains all the information about the running service: "
+
+    echo ""
+    echo ""
+
+    # sudo journalctl -u odoo
+
+
+        echo ""
+        echo ""
+        echo ""    
+        echo ""
+        echo ""
+        echo ""
+        echo "       ####     installation complet success     ######       "
+        echo ""
+        echo ""
+        echo ""
+        sleep 1s
+
+
+        rm -r -f ./odoo-venv.sh
