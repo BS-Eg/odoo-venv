@@ -44,8 +44,6 @@ echo  " Step 1: Update Repository "
     
     cd /
     mkdir -p /odoo      
-#    mkdir -p /odoo/161      
-#    mkdir -p /odoo/161
     mkdir -p /odoo/code
     
 echo  " Step 2: Install Odoo Dependencies "
@@ -92,8 +90,8 @@ sudo apt-get install xfonts-75dpi
         echo ""
         echo ""
 
-    mkdir  /odoo/161
-    cd  /odoo/161
+    mkdir /odoo/161
+    cd /odoo/161
     
     python3 -m venv .env
 
