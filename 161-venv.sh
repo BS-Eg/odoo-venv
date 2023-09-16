@@ -103,6 +103,8 @@ sudo apt-get install xfonts-75dpi
    deactivate
         
    mkdir -p /odoo/161/custom
+   
+   sudo touch /odoo/161/odoo.log
 
    sudo touch /odoo/161/odoo.conf
 
@@ -143,7 +145,6 @@ sudo apt-get install xfonts-75dpi
         echo ""
         echo ""
 
-    touch /odoo/161/odoo.log
 
     touch /lib/systemd/system/161-odo.service
 
