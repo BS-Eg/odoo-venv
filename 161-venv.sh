@@ -144,7 +144,7 @@ sudo apt-get install xfonts-75dpi
         echo ""
 
 
-    touch /lib/systemd/system/odoo.service
+    touch /lib/systemd/system/161-odo.service
 
     cd  /lib/systemd/system
 
