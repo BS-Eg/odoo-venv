@@ -143,6 +143,7 @@ sudo apt-get install xfonts-75dpi
         echo ""
         echo ""
 
+    touch /odoo/161/odoo.log
 
     touch /lib/systemd/system/161-odo.service
 
