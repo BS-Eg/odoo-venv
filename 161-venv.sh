@@ -117,6 +117,26 @@ sudo apt-get install xfonts-75dpi
         echo "db_password = False " >> odoo.conf
         echo "addons_path = /odoo/161/addons,/odoo/161/custom " >> odoo.conf
 
+
+        echo "proxy_mode = True " >> odoo.conf
+        echo "xmlrpc = True " >> odoo.conf
+        echo "xmlrpc_port = 161 " >> odoo.conf
+        echo "xmlrpc_interface =  " >> odoo.conf
+        
+        echo "http_port = 161 " >> odoo.conf
+        echo "longpolling_port = 261 " >> odoo.conf
+        echo "logfile = /odoo/161/log/odoo.log " >> odoo.conf
+        
+        
+        echo "limit_memory_hard = 2684354560 " >> odoo.conf
+        echo "limit_memory_soft = 2147483648 " >> odoo.conf
+        echo "limit_request = 8192 " >> odoo.conf
+        echo "limit_time_cpu = 600 " >> odoo.conf
+        echo "limit_time_real = 1200 " >> odoo.conf
+        echo "limit_time_real_cron = -1 " >> odoo.conf
+        echo "max_cron_threads = 2 " >> odoo.conf
+
+
         echo ""
         echo ""
         echo   " ### Create the odoo.service  ### "
